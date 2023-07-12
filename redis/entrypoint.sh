@@ -18,6 +18,8 @@ if [[ ! -d "$REDIS_DATA_DIR" ]]; then
 fi
 
 # install envsubst
+echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
 apt-get update && apt-get -y install gettext-base
 
 cat "$REDIS_CONF_FILE.tmpl" \

@@ -48,6 +48,8 @@ KPI_TABLES=(
  auth_group_permissions
  auth_user_groups
  auth_user_user_permissions
+ bossoidc_keycloak
+ main_userprofile
  constance_config
  django_celery_beat_periodictasks
  django_celery_beat_crontabschedule
