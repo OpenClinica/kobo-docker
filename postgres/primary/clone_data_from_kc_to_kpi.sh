@@ -155,7 +155,7 @@ else
             echo '*** IF YOU HAVE ALREADY RUN THIS SCRIPT SUCCESSFULLY, PLEASE EXIT NOW. ***'
             echo
             echo -n "While this script does not delete any data, the contents of \`$KPI_POSTGRES_DB\` "
-            echo 'will NO LONGER BE ACCESSIBLE in the KoBoToolbox application if you continue.'
+            echo 'will NO LONGER BE ACCESSIBLE in the KoboToolbox application if you continue.'
             echo "For help, visit $HELP_PAGE."
             echo
         fi
@@ -225,4 +225,4 @@ pg_dump \
 
 echo
 echo
-echo "The database upgrade finished successfully! Thanks for using KoBoToolbox."
+echo "The database upgrade finished successfully! Thanks for using KoboToolbox."

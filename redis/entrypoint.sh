@@ -17,14 +17,10 @@ if [[ ! -d "$REDIS_DATA_DIR" ]]; then
     mkdir -p "$REDIS_DATA_DIR"
 fi
 
-# install envsubst
-echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
-echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
-apt-get update && apt-get -y install gettext-base
-
-cat "$REDIS_CONF_FILE.tmpl" \
-      | envsubst '${CONTAINER_IP} ${REDIS_PASSWORD} ${REDIS_CACHE_MAX_MEMORY}' \
-        > "$REDIS_CONF_FILE"
+awk '{ gsub(/\${CONTAINER_IP}/,ENVIRON["CONTAINER_IP"])
+       gsub(/\${REDIS_PASSWORD}/,ENVIRON["REDIS_PASSWORD"])
+       gsub(/\${REDIS_CACHE_MAX_MEMORY}/,ENVIRON["REDIS_CACHE_MAX_MEMORY"])
+       print }' "$REDIS_CONF_FILE.tmpl" > "$REDIS_CONF_FILE"
 
 if [[ -z "$REDIS_PASSWORD" ]]; then
     sed -i 's/requirepass ""//g' "$REDIS_CONF_FILE"

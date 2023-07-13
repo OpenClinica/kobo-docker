@@ -11,3 +11,5 @@ docker-compose.yml
 start-env.sh
 stop-env.sh
 nginx/maintenance/index.html
+.uniqid
+.DS_Store
