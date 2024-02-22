@@ -41,7 +41,7 @@ if [ -f "$POSTGRES_DATA_DIR/kobo_first_run" ]; then
         # Update users if needed
         bash $KOBO_DOCKER_SCRIPTS_DIR/shared/upsert_users.sh
         # Update PostGIS extension
-        update-postgis.sh
+        # update-postgis.sh
         # Stop server
         su - postgres -c "$(command -v pg_ctl) -D \"$PGDATA\" -m fast -w stop"
     fi
