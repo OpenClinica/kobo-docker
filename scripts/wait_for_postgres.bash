@@ -20,9 +20,5 @@ PGPASSWORD="${POSTGRES_PASSWORD:-kobo}" psql \
     -d postgres -h "${POSTGRES_HOST}" -p "${POSTGRES_PORT}" -U "${POSTGRES_USER}" <<EOF
 CREATE DATABASE "$POSTGRES_DB" OWNER "$POSTGRES_USER";
 \c "$POSTGRES_DB"
-# CREATE EXTENSION IF NOT EXISTS postgis;
-# CREATE EXTENSION IF NOT EXISTS postgis_topology;
-# CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
-# CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
 EOF
 echo "Postgres database ${POSTGRES_DB} ready for use!"
